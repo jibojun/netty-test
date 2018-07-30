@@ -1,5 +1,6 @@
 package com.test.netty.client.handlers;
 
+import com.test.netty.common.BaseResponse;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 
@@ -10,6 +11,8 @@ import io.netty.channel.SimpleChannelInboundHandler;
  */
 public class ClientInboundHandler extends SimpleChannelInboundHandler {
     protected void channelRead0(ChannelHandlerContext ctx, Object msg) throws Exception {
-
+        BaseResponse response=(BaseResponse)msg;
+        System.out.println("client received server side's response!");
+        System.out.println(response.toString());
     }
 }
