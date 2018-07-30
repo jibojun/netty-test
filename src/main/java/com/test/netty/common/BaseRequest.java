@@ -1,11 +1,13 @@
 package com.test.netty.common;
 
+import java.io.Serializable;
+
 /**
  * @Author: Bojun Ji
  * @Description:
  * @Date: 2018/7/30_11:16 PM
  */
-public class BaseRequest {
+public class BaseRequest implements Serializable {
     private String requestId;
     private Object data;
 

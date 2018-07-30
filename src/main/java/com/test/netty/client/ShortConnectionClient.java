@@ -29,6 +29,7 @@ public class ShortConnectionClient {
     }
 
     private void buildRequest(String data) {
+        this.request=new BaseRequest();
         request.setRequestId(UUID.randomUUID().toString());
         request.setData(data);
     }
