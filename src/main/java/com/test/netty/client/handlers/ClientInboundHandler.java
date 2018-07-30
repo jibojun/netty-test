@@ -10,6 +10,7 @@ import io.netty.channel.SimpleChannelInboundHandler;
  * @Date: 2018/7/30_11:15 PM
  */
 public class ClientInboundHandler extends SimpleChannelInboundHandler {
+    @Override
     protected void channelRead0(ChannelHandlerContext ctx, Object msg) throws Exception {
         BaseResponse response=(BaseResponse)msg;
         System.out.println("client received server side's response!");

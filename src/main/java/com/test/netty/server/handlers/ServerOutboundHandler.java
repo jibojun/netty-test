@@ -15,6 +15,6 @@ public class ServerOutboundHandler extends ChannelOutboundHandlerAdapter {
     public void write(ChannelHandlerContext ctx, Object msg, ChannelPromise promise) throws Exception {
         System.out.println("server is sending response back to client side");
         System.out.println(msg.toString());
-        super.write(ctx, msg, promise);
+        ctx.writeAndFlush(msg);
     }
 }

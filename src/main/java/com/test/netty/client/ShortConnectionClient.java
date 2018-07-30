@@ -1,7 +1,10 @@
 package com.test.netty.client;
 
 import com.test.netty.client.handlers.ClientInboundHandler;
+import com.test.netty.codec.MessageDecoder;
+import com.test.netty.codec.MessageEncoder;
 import com.test.netty.common.BaseRequest;
+import com.test.netty.common.BaseResponse;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -44,6 +47,8 @@ public class ShortConnectionClient {
                         public void initChannel(SocketChannel channel)
                                 throws Exception {
                             channel.pipeline()
+                                    .addLast(new MessageEncoder(BaseRequest.class))
+                                    .addLast(new MessageDecoder(BaseResponse.class))
                                     .addLast(new ClientInboundHandler());
                         }
                     }).option(ChannelOption.TCP_NODELAY, true);

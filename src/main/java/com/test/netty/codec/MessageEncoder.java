@@ -22,8 +22,9 @@ public class MessageEncoder extends MessageToByteEncoder {
         if (genericClass.isInstance(msg)) {
             ProtoStuffObjectOutput output = new ProtoStuffObjectOutput(msg);
             byte[] data = output.writeObjectAndReturn();
-            out.writeBytes(data);
+            //write data length
             out.writeInt(data.length);
+            out.writeBytes(data);
         }
     }
 }

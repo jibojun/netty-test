@@ -20,7 +20,7 @@ public class ServerInboundHandler extends ChannelInboundHandlerAdapter {
         response.setRequestId(request.getRequestId());
         response.setResult("success");
         response.setError("no error");
-        ctx.write(response);
+        ctx.channel().write(response);
     }
 
     @Override
