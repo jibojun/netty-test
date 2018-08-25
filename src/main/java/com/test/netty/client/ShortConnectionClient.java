@@ -32,7 +32,7 @@ public class ShortConnectionClient {
     }
 
     private void buildRequest(String data) {
-        this.request=new BaseRequest();
+        this.request = new BaseRequest();
         request.setRequestId(UUID.randomUUID().toString());
         request.setData(data);
     }
@@ -57,6 +57,7 @@ public class ShortConnectionClient {
             future.channel().writeAndFlush(request).sync();
             //wait client to close
             future.channel().closeFuture().sync();
+            System.out.println("client connection closed");
         } catch (Exception e) {
             System.out.println(e);
         } finally {
