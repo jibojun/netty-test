@@ -62,6 +62,7 @@ public class ShortConnectionServer {
             //release resource from thread pool
             bossGroup.shutdownGracefully();
             workerGroup.shutdownGracefully();
+            
         }
     }
 }
